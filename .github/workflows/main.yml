@@ -88,13 +88,6 @@ jobs:
       run: |
         pwsh -Command ./createqmod.ps1 ${{env.qmodName}}
 
-    - name: Get Library Name
-      id: libname
-      run: |
-        cd ./build/
-        pattern="lib${module_id}*.so"
-        files=( $pattern )
-        echo ::set-output name=NAME::"${files[0]}"
     - name: Upload non-debug artifact
       uses: actions/upload-artifact@v2
       with:
